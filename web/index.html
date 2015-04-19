@@ -1,0 +1,55 @@
+<html>
+	<head>
+		<title>Form to Validate</title>
+		<style>
+			.mi{
+			width: 30px;
+			}
+			.street{
+			width:400px
+			}
+			input{
+			width:200px;
+			}
+		</style>
+		
+		<script>
+
+			function validateForm() {
+ 				  var fname = document.forms["myForm"]["fname"].value;
+ 				  var lname = document.forms["myForm"]["lname"].value;
+ 				  var email = document.forms["myForm"]["email"].value;
+ 				  var regEx = /\S+@\S+\.\S+/;
+ 				  
+  				  if (fname == null || fname == "" || lname== null || lname == ""  ){
+    			    alert("First Name and Last Name are required");
+
+  				   }
+  				   	if (!email.match(regEx))
+					{
+						alert("Invalid Email!");
+					}
+
+				}
+		</script>
+	</head>
+	<body>
+            <form name="myForm" onSubmit="validateForm()" action="FormSubmit" method='get' >
+			Last Name* <input name="lastName" type="text"/>
+			First Name* <input name="firstName" type="text" />
+			MI <input class="mi" name="mi" type="text"/><br/>
+			Telephone <input name="telephone" type="text" />
+			Email <input name="email" type="text" /><br/>
+			Street <input class="street" name="street" type="text" /><br/>
+			City <input name="city" type="text" />
+			State <select name='state'>
+				<option value='ga1'>Georgia-GA</option>
+				<option value='ga2'>Georgia-GA2</option>
+				<option value='ga3'>Georgia-GA3</option>
+			</select>
+			Zip <input name="zip" type="text" /><br/>
+			<input type="submit" name='Submit' value='Submit' />
+			<input type="reset" />
+		</form>
+	</body>
+</html>
